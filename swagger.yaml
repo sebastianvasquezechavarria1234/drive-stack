@@ -1,0 +1,94 @@
+openapi: 3.0.0
+info:
+  title: NodeApiCrud - Auto Management API
+  description: Professional CRUD API for managing automobiles with Node.js and Express.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Local development server
+paths:
+  /autos:
+    get:
+      summary: Get all autos
+      parameters:
+        - in: query
+          name: categoria
+          schema:
+            type: string
+          description: Filter by category
+        - in: query
+          name: nombre
+          schema:
+            type: string
+          description: Filter by name
+      responses:
+        '200':
+          description: A list of autos
+    post:
+      summary: Create a new auto
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Auto'
+      responses:
+        '201':
+          description: Created
+  /autos/{id}:
+    get:
+      summary: Get auto by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Auto details
+    put:
+      summary: Update auto by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Auto'
+      responses:
+        '200':
+          description: Updated
+    delete:
+      summary: Delete auto by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Deleted
+components:
+  schemas:
+    Auto:
+      type: object
+      required:
+        - nombre
+        - precio
+        - categoria
+      properties:
+        id:
+          type: integer
+        nombre:
+          type: string
+        precio:
+          type: number
+        categoria:
+          type: string

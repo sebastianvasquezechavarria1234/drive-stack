@@ -12,6 +12,10 @@ import morgan from "morgan";
 import autoRoutes from "./src/routes/auto.routes.js";
 import { errorHandler } from "./src/middlewares/errorHandler.js";
 import { AppError } from "./src/utils/errors.js";
+import swaggerUi from "swagger-ui-express";
+import YAML from "yamljs";
+
+const swaggerDocument = YAML.load("./swagger.yaml");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -21,6 +25,9 @@ app.use(helmet());
 app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
+
+// Documentation
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Routes
 app.get("/", (req, res) => {
