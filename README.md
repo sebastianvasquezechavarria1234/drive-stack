@@ -1,79 +1,79 @@
 # NodeApiCrud 🚗
 
-Una API REST profesional y robusta construida con **Node.js** y **Express** para la gestión de inventario de automóviles. Este proyecto implementa las mejores prácticas de desarrollo, incluyendo validación avanzada, documentación interactiva y manejo de errores centralizado.
+A professional and robust REST API built with **Node.js** and **Express** for automobile inventory management. This project implements industry best practices, including advanced validation, interactive documentation, and centralized error handling.
 
-## 🚀 Características Principales
+## 🚀 Key Features
 
-- **🛡️ Seguridad:** Integración con `helmet` para cabeceras de seguridad y protección contra vulnerabilidades comunes.
-- **📜 Documentación con Swagger:** API documentada e interactiva disponible en `/api-docs`.
-- **✅ Validación Robusta:** Uso de **Zod** para esquemas de validación estrictos y mensajes de error detallados.
-- **🔄 Operaciones Asíncronas:** Implementación de `fs/promises` para asegurar que el servidor sea escalable y no bloqueante.
-- **⚠️ Manejo de Errores Centralizado:** Middleware global para la gestión de excepciones operacionales y de programación.
-- **⚙️ Configuración por Entorno:** Uso de `dotenv` para una gestión segura de variables de configuración.
-- **📂 Arquitectura Limpia:** Separación de responsabilidades entre rutas, controladores, validadores y utilidades.
+- **🛡️ Security:** Integrated with `helmet` for security headers and protection against common vulnerabilities.
+- **📜 Swagger Documentation:** Interactive API documentation available at `/api-docs`.
+- **✅ Robust Validation:** Uses **Zod** for strict validation schemas and detailed error messages.
+- **🔄 Asynchronous Operations:** Implements `fs/promises` to ensure the server is non-blocking and scalable.
+- **⚠️ Centralized Error Handling:** Global middleware for managing both operational and programming exceptions.
+- **⚙️ Environment Configuration:** Uses `dotenv` for secure management of configuration variables.
+- **📂 Clean Architecture:** Clear separation of concerns between routes, controllers, validators, and utilities.
 
-## 🔧 Instalación y Uso
+## 🔧 Installation and Usage
 
-1.  **Clonar el repositorio:**
+1.  **Clone the repository:**
     ```bash
     git clone https://github.com/sebastianvasquezechavarria1234/NodeApiCrud.git
     cd NodeApiCrud
     ```
 
-2.  **Instalar dependencias:**
+2.  **Install dependencies:**
     ```bash
     npm install
     ```
 
-3.  **Configurar variables de entorno:**
-    Crea un archivo `.env` basado en el archivo `.env.example`:
+3.  **Configure environment variables:**
+    Create a `.env` file based on the `.env.example` file:
     ```bash
     cp .env.example .env
     ```
 
-4.  **Iniciar el servidor:**
-    - Modo desarrollo (con Nodemon): `npm run dev`
-    - Modo producción: `npm start`
+4.  **Start the server:**
+    - Development mode (with Nodemon): `npm run dev`
+    - Production mode: `npm start`
 
 ## 🛣️ API Endpoints
 
-| Método | Endpoint | Descripción |
+| Method | Endpoint | Description |
 | :--- | :--- | :--- |
-| **GET** | `/` | Mensaje de bienvenida y estado del servidor. |
-| **GET** | `/health` | Health check del sistema (uptime y estado). |
-| **GET** | `/api-docs` | **Documentación Interactiva (Swagger UI)**. |
-| **GET** | `/autos` | Obtener todos los autos (Soporta filtros `categoria` y `nombre`). |
-| **GET** | `/autos/:id` | Obtener detalles de un auto específico por su ID. |
-| **POST** | `/autos` | Registrar un nuevo auto (Requiere validación de esquema). |
-| **PUT** | `/autos/:id` | Actualizar la información de un auto existente. |
-| **DELETE** | `/autos/:id` | Eliminar un auto del inventario. |
+| **GET** | `/` | Welcome message and server status. |
+| **GET** | `/health` | System health check (uptime and status). |
+| **GET** | `/api-docs` | **Interactive Documentation (Swagger UI)**. |
+| **GET** | `/autos` | Get all cars (Supports `category` and `name` filters). |
+| **GET** | `/autos/:id` | Get details of a specific car by ID. |
+| **POST** | `/autos` | Register a new car (Requires schema validation). |
+| **PUT** | `/autos/:id` | Update an existing car's information. |
+| **DELETE** | `/autos/:id` | Remove a car from the inventory. |
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 
 ```text
 ├── src/
-│   ├── controllers/  # Lógica de las peticiones
-│   ├── middlewares/  # Validaciones (Zod) y Error Handler
-│   ├── routes/       # Definición de rutas Express
-│   ├── utils/        # Persistencia (db.js) y Errores personalizados
-├── db.json           # "Base de datos" local en formato JSON
-├── swagger.yaml      # Especificación OpenAPI 3.0
-├── index.js          # Punto de entrada de la aplicación
-└── .env              # Variables de configuración (no trackeadas por git)
+│   ├── controllers/  # Request logic
+│   ├── middlewares/  # Validations (Zod) and Error Handler
+│   ├── routes/       # Express route definitions
+│   ├── utils/        # Persistence (db.js) and custom Error class
+├── db.json           # Local "Database" in JSON format
+├── swagger.yaml      # OpenAPI 3.0 Specification
+├── index.js          # Application entry point
+└── .env              # Configuration variables (git ignored)
 ```
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Technologies Used
 
-- **Express 5** - Framework web rápido y minimalista.
-- **Zod** - Declaración de esquemas y validación de tipos.
-- **Helmet** - Seguridad para aplicaciones Express.
-- **Morgan** - Logger de peticiones HTTP.
-- **Swagger UI** - Visualización y prueba de la API.
-- **Dotenv** - Gestión de variables de entorno.
+- **Express 5** - Fast, unopinionated web framework.
+- **Zod** - Schema declaration and type validation.
+- **Helmet** - Security for Express applications.
+- **Morgan** - HTTP request logger.
+- **Swagger UI** - API visualization and testing.
+- **Dotenv** - Environment variable management.
 
-## 🤝 Contribución
+## 🤝 Contribution
 
-¡Las contribuciones son lo que hacen a la comunidad de código abierto un lugar increíble! Siéntete libre de abrir un issue o enviar un pull request.
+Contributions are what make the open-source community such an amazing place! Feel free to open an issue or submit a pull request.
 
 ---
-Desarrollado por **sebastianvasquezechavarria1234 & Santi Vasquez** 🛡️🗿
+Developed by **sebastianvasquezechavarria1234 & Santi Vasquez** 🛡️🗿
