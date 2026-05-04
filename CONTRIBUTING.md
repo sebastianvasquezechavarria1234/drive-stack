@@ -1,17 +1,27 @@
-# Contribuyendo a NodeApiCrud 🚀
+# Contributing to NodeApiCrud 🚀
 
-¡Gracias por tu interés en colaborar! Para mantener el proyecto organizado, por favor sigue estas pautas:
+Thank you for your interest in contributing! To maintain project quality and organization, please follow these guidelines:
 
-## Cómo colaborar
+## How to Contribute
 
-1. Haz un Fork del repositorio.
-2. Crea una rama para tu característica o corrección (`git checkout -b feature/nueva-mejora`).
-3. Realiza tus cambios y haz commits descriptivos.
-4. Sube tus cambios a tu fork (`git push origin feature/nueva-mejora`).
-5. Abre una Pull Request.
+1.  **Fork the repository.**
+2.  **Create a branch** for your feature or fix (`git checkout -b feature/amazing-improvement`).
+3.  **Commit your changes** with descriptive messages (following conventional commits is encouraged).
+4.  **Push to the branch** (`git push origin feature/amazing-improvement`).
+5.  **Open a Pull Request** describing your changes in detail.
 
-## Estándares de Código
+## Coding Standards
 
-- Usa ES Modules (`import`/`export`).
-- Mantén el código limpio y comentado cuando sea necesario.
-- Asegúrate de que el servidor arranque sin errores antes de mandar la PR.
+- **Use ES Modules:** Always use `import`/`export` syntax.
+- **Asynchronous Code:** Use `async/await` for any I/O or file system operations.
+- **Validation:** If adding new fields, update the corresponding **Zod** schema in `src/middlewares/`.
+- **Documentation:** If adding new routes, update `swagger.yaml` to reflect the changes.
+- **Clean Code:** Keep the code clean, dry (DRY), and commented where necessary.
+- **Pre-flight Check:** Ensure the server starts without errors and passes basic validation before submitting your PR.
+
+## Bug Reports and Feature Requests
+
+Please use the **Issues** tab to report bugs or suggest new features. Provide as much context as possible, including steps to reproduce bugs.
+
+---
+Thank you for making this project better! 🛡️🗿
