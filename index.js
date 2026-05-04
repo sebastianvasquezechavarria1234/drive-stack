@@ -10,6 +10,8 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import autoRoutes from "./src/routes/auto.routes.js";
+import { errorHandler } from "./src/middlewares/errorHandler.js";
+import { AppError } from "./src/utils/errors.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -32,11 +34,13 @@ app.get("/health", (req, res) => {
     res.json({ status: "ok", uptime: process.uptime() });
 });
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).json({ message: "Algo salió mal!" });
+// 404 handler
+app.all("*", (req, res, next) => {
+    next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });
+
+// Error handling middleware
+app.use(errorHandler);
 
 app.listen(PORT, () => {
     console.log(`El servidor está levantado en el puerto ${PORT}`);
