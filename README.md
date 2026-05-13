@@ -1,4 +1,4 @@
-# NodeApiCrud 🚗
+# DriveStack 🚗
 
 A professional and robust REST API built with **Node.js** and **Express** for automobile inventory management. This project implements industry best practices, including advanced validation, interactive documentation, and centralized error handling.
 
@@ -16,8 +16,8 @@ A professional and robust REST API built with **Node.js** and **Express** for au
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/sebastianvasquezechavarria1234/NodeApiCrud.git
-    cd NodeApiCrud
+    git clone https://github.com/sebastianvasquezechavarria1234/drive-stack.git
+    cd drive-stack
     ```
 
 2.  **Install dependencies:**
