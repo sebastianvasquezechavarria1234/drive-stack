@@ -4,6 +4,12 @@
 import * as db from "../utils/db.js";
 import { parseId } from "../utils/id.js";
 
+/**
+ * Retrieves all autos with optional filters by categoria and nombre.
+ * @param {import("express").Request} req - Express request object
+ * @param {import("express").Response} res - Express response object
+ * @param {import("express").NextFunction} next - Express next middleware function
+ */
 export const getAllAutos = async (req, res, next) => {
     try {
         const data = await db.readData();
@@ -24,6 +30,12 @@ export const getAllAutos = async (req, res, next) => {
     }
 };
 
+/**
+ * Retrieves a single auto by its ID.
+ * @param {import("express").Request} req - Express request object
+ * @param {import("express").Response} res - Express response object
+ * @param {import("express").NextFunction} next - Express next middleware function
+ */
 export const getAutoById = async (req, res, next) => {
     try {
         const data = await db.readData();
@@ -37,6 +49,12 @@ export const getAutoById = async (req, res, next) => {
     }
 };
 
+/**
+ * Creates a new auto entry.
+ * @param {import("express").Request} req - Express request object
+ * @param {import("express").Response} res - Express response object
+ * @param {import("express").NextFunction} next - Express next middleware function
+ */
 export const createAuto = async (req, res, next) => {
     try {
         const data = await db.readData();
@@ -52,6 +70,12 @@ export const createAuto = async (req, res, next) => {
     }
 };
 
+/**
+ * Updates an existing auto by ID.
+ * @param {import("express").Request} req - Express request object
+ * @param {import("express").Response} res - Express response object
+ * @param {import("express").NextFunction} next - Express next middleware function
+ */
 export const updateAuto = async (req, res, next) => {
     try {
         const data = await db.readData();
@@ -68,6 +92,12 @@ export const updateAuto = async (req, res, next) => {
     }
 };
 
+/**
+ * Deletes an auto by ID.
+ * @param {import("express").Request} req - Express request object
+ * @param {import("express").Response} res - Express response object
+ * @param {import("express").NextFunction} next - Express next middleware function
+ */
 export const deleteAuto = async (req, res, next) => {
     try {
         const data = await db.readData();
