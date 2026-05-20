@@ -12,6 +12,7 @@ import morgan from "morgan";
 import autoRoutes from "./src/routes/auto.routes.js";
 import { errorHandler } from "./src/middlewares/errorHandler.js";
 import { AppError } from "./src/utils/errors.js";
+import { ROUTES } from "./src/utils/constants.js";
 import swaggerUi from "swagger-ui-express";
 import YAML from "yamljs";
 
@@ -27,17 +28,17 @@ app.use(cors());
 app.use(express.json());
 
 // Documentation
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use(ROUTES.API_DOCS, swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Routes
-app.get("/", (req, res) => {
+app.get(ROUTES.ROOT, (req, res) => {
     res.send("Bienvenido a mi primera API con Node.js profesional y segura! 🛡️🗿");
 });
 
-app.use("/autos", autoRoutes);
+app.use(ROUTES.AUTOS, autoRoutes);
 
 // Health check
-app.get("/health", (req, res) => {
+app.get(ROUTES.HEALTH, (req, res) => {
     res.json({ status: "ok", uptime: process.uptime() });
 });
 
