@@ -2,6 +2,7 @@
  * Controladores para las operaciones CRUD de autos (Asíncronos)
  */
 import * as db from "../utils/db.js";
+import { parseId } from "../utils/id.js";
 
 export const getAllAutos = async (req, res, next) => {
     try {
@@ -26,7 +27,8 @@ export const getAllAutos = async (req, res, next) => {
 export const getAutoById = async (req, res, next) => {
     try {
         const data = await db.readData();
-        const id = parseInt(req.params.id);
+        const id = parseId(req.params.id);
+        if (id === null) return res.status(400).json({ message: "ID inválido" });
         const auto = data.autos.find((a) => a.id === id);
         if (!auto) return res.status(404).json({ message: "Auto no encontrado" });
         res.json(auto);
@@ -53,7 +55,8 @@ export const createAuto = async (req, res, next) => {
 export const updateAuto = async (req, res, next) => {
     try {
         const data = await db.readData();
-        const id = parseInt(req.params.id);
+        const id = parseId(req.params.id);
+        if (id === null) return res.status(400).json({ message: "ID inválido" });
         const index = data.autos.findIndex((a) => a.id === id);
         if (index === -1) return res.status(404).json({ message: "Auto no encontrado" });
 
@@ -68,7 +71,8 @@ export const updateAuto = async (req, res, next) => {
 export const deleteAuto = async (req, res, next) => {
     try {
         const data = await db.readData();
-        const id = parseInt(req.params.id);
+        const id = parseId(req.params.id);
+        if (id === null) return res.status(400).json({ message: "ID inválido" });
         const initialLength = data.autos.length;
         data.autos = data.autos.filter((a) => a.id !== id);
 
