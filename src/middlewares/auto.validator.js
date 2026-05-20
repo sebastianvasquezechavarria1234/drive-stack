@@ -4,6 +4,7 @@ const autoSchema = z.object({
     nombre: z.string().min(1, "El nombre es obligatorio").trim(),
     precio: z.number().positive("El precio debe ser un número positivo"),
     categoria: z.string().min(1, "La categoría es obligatoria").trim(),
+    stock: z.number().int().nonnegative("El stock debe ser un número no negativo").optional(),
 });
 
 export const validateAuto = (req, res, next) => {
