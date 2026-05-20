@@ -24,4 +24,5 @@ Thank you for your interest in contributing! To maintain project quality and org
 Please use the **Issues** tab to report bugs or suggest new features. Provide as much context as possible, including steps to reproduce bugs.
 
 ---
+
 Thank you for making this project better! 🛡️🗿

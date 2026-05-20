@@ -31,24 +31,26 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Routes
 app.get("/", (req, res) => {
-    res.send("Bienvenido a mi primera API con Node.js profesional y segura! 🛡️🗿");
+  res.send(
+    "Bienvenido a mi primera API con Node.js profesional y segura! 🛡️🗿",
+  );
 });
 
 app.use("/autos", autoRoutes);
 
 // Health check
 app.get("/health", (req, res) => {
-    res.json({ status: "ok", uptime: process.uptime() });
+  res.json({ status: "ok", uptime: process.uptime() });
 });
 
 // 404 handler
 app.all("*", (req, res, next) => {
-    next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
+  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });
 
 // Error handling middleware
 app.use(errorHandler);
 
 app.listen(PORT, () => {
-    console.log(`El servidor está levantado en el puerto ${PORT}`);
-});
+  console.log(`El servidor está levantado en el puerto ${PORT}`);
+});

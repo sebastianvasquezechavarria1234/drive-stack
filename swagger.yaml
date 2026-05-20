@@ -22,7 +22,7 @@ paths:
             type: string
           description: Filter by name
       responses:
-        '200':
+        "200":
           description: A list of autos
     post:
       summary: Create a new auto
@@ -31,9 +31,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Auto'
+              $ref: "#/components/schemas/Auto"
       responses:
-        '201':
+        "201":
           description: Created
   /autos/{id}:
     get:
@@ -45,7 +45,7 @@ paths:
           schema:
             type: integer
       responses:
-        '200':
+        "200":
           description: Auto details
     put:
       summary: Update auto by ID
@@ -60,9 +60,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Auto'
+              $ref: "#/components/schemas/Auto"
       responses:
-        '200':
+        "200":
           description: Updated
     delete:
       summary: Delete auto by ID
@@ -73,7 +73,7 @@ paths:
           schema:
             type: integer
       responses:
-        '200':
+        "200":
           description: Deleted
 components:
   schemas:

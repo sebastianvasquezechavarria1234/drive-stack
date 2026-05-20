@@ -15,18 +15,21 @@ A professional and robust REST API built with **Node.js** and **Express** for au
 ## 🔧 Installation and Usage
 
 1.  **Clone the repository:**
+
     ```bash
     git clone https://github.com/sebastianvasquezechavarria1234/drive-stack.git
     cd drive-stack
     ```
 
 2.  **Install dependencies:**
+
     ```bash
     npm install
     ```
 
 3.  **Configure environment variables:**
     Create a `.env` file based on the `.env.example` file:
+
     ```bash
     cp .env.example .env
     ```
@@ -37,16 +40,16 @@ A professional and robust REST API built with **Node.js** and **Express** for au
 
 ## 🛣️ API Endpoints
 
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| **GET** | `/` | Welcome message and server status. |
-| **GET** | `/health` | System health check (uptime and status). |
-| **GET** | `/api-docs` | **Interactive Documentation (Swagger UI)**. |
-| **GET** | `/autos` | Get all cars (Supports `category` and `name` filters). |
-| **GET** | `/autos/:id` | Get details of a specific car by ID. |
-| **POST** | `/autos` | Register a new car (Requires schema validation). |
-| **PUT** | `/autos/:id` | Update an existing car's information. |
-| **DELETE** | `/autos/:id` | Remove a car from the inventory. |
+| Method     | Endpoint     | Description                                            |
+| :--------- | :----------- | :----------------------------------------------------- |
+| **GET**    | `/`          | Welcome message and server status.                     |
+| **GET**    | `/health`    | System health check (uptime and status).               |
+| **GET**    | `/api-docs`  | **Interactive Documentation (Swagger UI)**.            |
+| **GET**    | `/autos`     | Get all cars (Supports `category` and `name` filters). |
+| **GET**    | `/autos/:id` | Get details of a specific car by ID.                   |
+| **POST**   | `/autos`     | Register a new car (Requires schema validation).       |
+| **PUT**    | `/autos/:id` | Update an existing car's information.                  |
+| **DELETE** | `/autos/:id` | Remove a car from the inventory.                       |
 
 ## 📁 Project Structure
 
@@ -76,4 +79,5 @@ A professional and robust REST API built with **Node.js** and **Express** for au
 Contributions are what make the open-source community such an amazing place! Feel free to open an issue or submit a pull request.
 
 ---
+
 Developed by **sebastianvasquezechavarria1234 & Santi Vasquez** 🛡️🗿
