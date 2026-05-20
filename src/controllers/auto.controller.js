@@ -2,21 +2,12 @@
  * Controladores para las operaciones CRUD de autos (Asíncronos)
  */
 import * as db from "../utils/db.js";
+import { filterAutos } from "../utils/filter.js";
 
 export const getAllAutos = async (req, res, next) => {
     try {
         const data = await db.readData();
-        let { categoria, nombre } = req.query;
-        let autos = data.autos;
-
-        if (categoria) {
-            autos = autos.filter(a => a.categoria?.toLowerCase() === categoria.toLowerCase());
-        }
-
-        if (nombre) {
-            autos = autos.filter(a => a.nombre?.toLowerCase().includes(nombre.toLowerCase()));
-        }
-
+        const autos = filterAutos(data.autos, req.query);
         res.json(autos);
     } catch (error) {
         next(error);
