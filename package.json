@@ -16,7 +16,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "format": "prettier --write \"src/**/*.js\" \"*.{js,json,yaml,md}\"",
+    "format:check": "prettier --check \"src/**/*.js\" \"*.{js,json,yaml,md}\""
   },
   "dependencies": {
     "cors": "^2.8.6",
