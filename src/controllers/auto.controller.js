@@ -2,6 +2,7 @@
  * Controladores para las operaciones CRUD de autos (Asíncronos)
  */
 import * as db from "../utils/db.js";
+import { HTTP_STATUS } from "../utils/httpStatus.js";
 
 export const getAllAutos = async (req, res, next) => {
     try {
@@ -28,7 +29,7 @@ export const getAutoById = async (req, res, next) => {
         const data = await db.readData();
         const id = parseInt(req.params.id);
         const auto = data.autos.find((a) => a.id === id);
-        if (!auto) return res.status(404).json({ message: "Auto no encontrado" });
+        if (!auto) return res.status(HTTP_STATUS.NOT_FOUND).json({ message: "Auto no encontrado" });
         res.json(auto);
     } catch (error) {
         next(error);
@@ -44,7 +45,7 @@ export const createAuto = async (req, res, next) => {
         };
         data.autos.push(newCar);
         await db.writeData(data);
-        res.status(201).json(newCar);
+        res.status(HTTP_STATUS.CREATED).json(newCar);
     } catch (error) {
         next(error);
     }
@@ -55,7 +56,7 @@ export const updateAuto = async (req, res, next) => {
         const data = await db.readData();
         const id = parseInt(req.params.id);
         const index = data.autos.findIndex((a) => a.id === id);
-        if (index === -1) return res.status(404).json({ message: "Auto no encontrado" });
+        if (index === -1) return res.status(HTTP_STATUS.NOT_FOUND).json({ message: "Auto no encontrado" });
 
         data.autos[index] = { ...data.autos[index], ...req.body, id };
         await db.writeData(data);
@@ -73,7 +74,7 @@ export const deleteAuto = async (req, res, next) => {
         data.autos = data.autos.filter((a) => a.id !== id);
 
         if (data.autos.length === initialLength) {
-            return res.status(404).json({ message: "Auto no encontrado" });
+            return res.status(HTTP_STATUS.NOT_FOUND).json({ message: "Auto no encontrado" });
         }
 
         await db.writeData(data);
